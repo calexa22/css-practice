@@ -1,4 +1,4 @@
-Function Get-CssDirectory {
+function Get-CssDirectory {
     param(
         [Parameter(Mandatory = $true)]
         [string]
@@ -11,7 +11,7 @@ Function Get-CssDirectory {
         $Assignment
     )
 
-    Function Get-DirIndex() {
+    function Get-DirIndex() {
         param (
             [Parameter(Mandatory = $true)]
             [string]

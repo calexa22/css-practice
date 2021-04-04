@@ -12,7 +12,7 @@ param(
         $Assignment
     )
 
-Function New-CssLesson() {
+function New-CssLesson() {
     param(
         [Parameter(Mandatory = $true)]
         [string]

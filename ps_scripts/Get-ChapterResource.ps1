@@ -12,7 +12,7 @@ param(
     $Assignment
 )
 
-Function Get-ChapterResouse {
+function Get-ChapterResouse {
     param(
         [Parameter(Mandatory = $true)]
         [string]
