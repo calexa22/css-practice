@@ -30,7 +30,7 @@ function Get-ChapterResouse {
     $file = Split-Path $Source -Leaf
 
     $moduleDir = Get-CssDirectory -Path $(Split-Path $PSScriptRoot -Parent) -Index $Module -Assignment $Assignment
-    $chapterDir = Get-CssDirectory -Path $moduleDir -Index $Chapter -Assignment $False
+    $chapterDir = Get-CssDirectory -Path $moduleDir -Index $Chapter -Assignment $false
     $resources = Join-Path -Path $chapterDir -ChildPath 'ChapterResources'
     $destination = Join-Path -Path $resources -ChildPath $($file.Substring(0, $file.IndexOf('.')))
 
@@ -43,6 +43,6 @@ function Get-ChapterResouse {
     Write-Host -ForegroundColor Yellow 'Resource archive expanded successfully...'
 }
 
-Import-Module ./Get-CssDirectory
+Import-Module ./Get-ProjectHelpers
 Get-ChapterResouse -Source $Source -Module $Module -Chapter $Chapter -Assignment $Assignment
-Remove-Module Get-CssDirectory
+Remove-Module Get-ProjectHelpers

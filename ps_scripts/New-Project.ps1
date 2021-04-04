@@ -1,3 +1,5 @@
+Import-Module ./Get-ProjectHelpers
+
 [string[]] $cssModules =
     'GettingStarted',
     'DivingIntoTheBasicsOfCss',
@@ -22,8 +24,7 @@ for ($i = 0; $i -lt $cssModules.Length; $i++) {
     $module = $cssModules[$i];
     $index = $i + 1;
 
-    #mimic C-style integer division
-    $prefix = if ([int][Math]::Floor($index / 10) -eq 1) { "1$($index % 10)" } else { "0${index}"}
+    $prefix = Get-Prefix -Number $index -MaxNumber $cssModules.Length
     
     $path = New-Item -Name "${prefix}_${module}" -ItemType Directory -Path (Split-Path $PSScriptRoot -Parent)
     New-Item -Name 'Assignments' -ItemType Directory -Path $path
@@ -32,3 +33,5 @@ for ($i = 0; $i -lt $cssModules.Length; $i++) {
 }
 
 Write-Host -ForegroundColor Yellow "Project created successfully..."
+
+Remove-Module Get-ProjectHelpers
